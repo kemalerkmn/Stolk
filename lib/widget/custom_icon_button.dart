@@ -14,8 +14,8 @@ class CustomIconButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-          width: 32,
-          height: 32,
+          width: 38,
+          height: 38,
           decoration: BoxDecoration(
               border: Border.all(
                   width: 1, color: context.general.colorScheme.onBackground),

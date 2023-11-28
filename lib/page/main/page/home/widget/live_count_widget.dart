@@ -12,8 +12,8 @@ class LiveCountWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 14,
-      width: 30,
+      height: 16,
+      width: 34,
       decoration: BoxDecoration(
           color: const Color.fromRGBO(31, 33, 46, .4),
           borderRadius: context.border.normalBorderRadius,
@@ -24,7 +24,7 @@ class LiveCountWidget extends StatelessWidget {
         children: [
           SvgPicture.asset(
             "assets/icons/auth_icons/password_icons2.svg",
-            height: 6,
+            height: 8,
             color: Colors.white,
           ),
           const SizedBox(

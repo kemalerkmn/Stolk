@@ -4,7 +4,10 @@ import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';
 import 'package:stolk_/main.dart';
 import 'package:stolk_/model/core/title_model.dart';
+import 'package:stolk_/page/main/appbar/page/notification/notification_page.dart';
+import 'package:stolk_/page/main/appbar/page/status/status_page.dart';
 import 'package:stolk_/page/main/page/home/event/page/event_page.dart';
+import 'package:stolk_/page/main/page/home/live/page/live_page.dart';
 import 'package:stolk_/page/main/page/home/page/event_list_screen/event_list_screen.dart';
 import 'package:stolk_/page/main/page/home/page/live_list_screen/live_list_screen_page.dart';
 import 'package:stolk_/page/main/page/home/page/main_body_page/main_body_page.dart';
@@ -48,11 +51,23 @@ class _HomePageState extends State<HomePage> {
                 ),
           actions: [
             CustomIconButton(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const StatusPage(),
+                    ));
+              },
               icon: Image.asset("assets/image/icons/cup_icon.png"),
             ),
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const NotificationPage(),
+                      ));
+                },
                 icon: SvgPicture.asset(
                   "assets/icons/notifi_icon.svg",
                   height: 25,
@@ -102,9 +117,19 @@ class _HomePageState extends State<HomePage> {
                                         builder: (context) => const EventPage(),
                                       ));
                                 }
-                                pageBodyController.animateToPage(index,
-                                    duration: const Duration(milliseconds: 400),
-                                    curve: Curves.easeOutQuad);
+                                if (index == 1) {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => const LivePage(),
+                                      ));
+                                }
+                                if (index == 0) {
+                                  pageBodyController.animateToPage(index,
+                                      duration:
+                                          const Duration(milliseconds: 400),
+                                      curve: Curves.easeOutQuad);
+                                }
                                 context
                                     .read<ChangeMainBody>()
                                     .changePage(index);
@@ -151,9 +176,6 @@ class _HomePageState extends State<HomePage> {
 
 List<Widget> bodyList = [
   const MainBodyPage(),
-  const Text("CANLI YAYIN PAGE"),
-  const Text("EVENT PAGE"),
-  const Text("MATCH PAGE"),
   const LiveListScreen(),
   const EventListScreen()
 ];

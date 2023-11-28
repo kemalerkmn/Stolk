@@ -44,6 +44,8 @@ dependencies:
   intl_phone_field: ^3.2.0
   country_phone_code_picker: ^0.0.43
   country_pickers: ^2.0.0
+  flutter_card_swiper: ^6.0.0
+  flutter_slidable: ^3.0.1
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +80,10 @@ flutter:
     - assets/image/example/
     - assets/image/page_view/
     - assets/icons/event_icon/
+    - assets/icons/live_icons/
+    - assets/icons/match_icons/
+    - assets/icons/profile_icons/
+    - assets/icons/message_icons/
 
     
 

@@ -4,6 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:kartal/kartal.dart';
 import 'package:stolk_/page/main/page/home/page/home_page.dart';
 import 'package:stolk_/page/main/page/maps/maps_page.dart';
+import 'package:stolk_/page/main/page/message/page/message_list_page.dart';
+import 'package:stolk_/page/main/page/profile/pages/profile_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -147,7 +149,7 @@ class _MainPageState extends State<MainPage> {
                         borderRadius: context.border.lowBorderRadius,
                         color: context.general.colorScheme.secondary),
                     child: const Icon(
-                      Icons.add,
+                      Icons.close,
                       size: 38,
                       color: Colors.black,
                     ),
@@ -168,6 +170,6 @@ class _MainPageState extends State<MainPage> {
 List<Widget> screenList = [
   const HomePage(),
   const MapsPage(),
-  const Center(child: Text("MESAJLAR GELECEK")),
-  const Center(child: Text("PROFİL GELECEK")),
+  const MessageListPage(),
+  const ProfilePage()
 ];

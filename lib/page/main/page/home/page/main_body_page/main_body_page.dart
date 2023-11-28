@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:kartal/kartal.dart';
+import 'package:stolk_/page/main/page/home/match/page/match_page.dart';
 
 import 'package:stolk_/page/main/page/home/page/home_page.dart';
 import 'package:stolk_/page/main/page/home/widget/event_widget.dart';
@@ -112,60 +113,68 @@ class _MainBodyPageState extends State<MainBodyPage> {
         const SizedBox(height: 12),
         Padding(
           padding: const EdgeInsets.only(right: 8),
-          child: SizedBox(
-            height: context.general.mediaSize.height / 5.7,
-            width: double.infinity,
-            child: Stack(
-              children: [
-                Container(
-                  height: context.general.mediaSize.height / 5.7,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      border: Border.all(
-                          width: 1,
-                          color: context.general.colorScheme.onBackground),
-                      color: context.general.colorScheme.primary,
-                      borderRadius: context.border.normalBorderRadius),
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SvgPicture.asset(
-                            "assets/icons/menu_icon/match_icon.svg"),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        GradientText(
-                          "Match",
-                          style: context.general.textTheme.bodyLarge?.copyWith(
-                              fontSize: 16, fontWeight: FontWeight.w600),
-                          gradient: const LinearGradient(colors: [
-                            Color.fromRGBO(129, 245, 223, 1),
-                            Color.fromRGBO(244, 241, 255, 1),
-                            Color.fromRGBO(124, 197, 183, 1),
-                          ]),
-                        ),
-                        Text(
-                          "Aşkı veya dostluğu keşfet,\nseninle aynı frekansta \nolanları bul!",
-                          style: context.general.textTheme.bodySmall
-                              ?.copyWith(fontSize: 8),
-                        ),
-                        Icon(
-                          Icons.arrow_forward,
-                          color: context.general.colorScheme.secondary,
-                        )
-                      ],
+          child: GestureDetector(
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const MatchPage(),
+                )),
+            child: SizedBox(
+              height: context.general.mediaSize.height / 5.7,
+              width: double.infinity,
+              child: Stack(
+                children: [
+                  Container(
+                    height: context.general.mediaSize.height / 5.7,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                            width: 1,
+                            color: context.general.colorScheme.onBackground),
+                        color: context.general.colorScheme.primary,
+                        borderRadius: context.border.normalBorderRadius),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 4, horizontal: 12),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SvgPicture.asset(
+                              "assets/icons/menu_icon/match_icon.svg"),
+                          const SizedBox(
+                            height: 8,
+                          ),
+                          GradientText(
+                            "Match",
+                            style: context.general.textTheme.bodyLarge
+                                ?.copyWith(
+                                    fontSize: 16, fontWeight: FontWeight.w600),
+                            gradient: const LinearGradient(colors: [
+                              Color.fromRGBO(129, 245, 223, 1),
+                              Color.fromRGBO(244, 241, 255, 1),
+                              Color.fromRGBO(124, 197, 183, 1),
+                            ]),
+                          ),
+                          Text(
+                            "Aşkı veya dostluğu keşfet,\nseninle aynı frekansta \nolanları bul!",
+                            style: context.general.textTheme.bodySmall
+                                ?.copyWith(fontSize: 8),
+                          ),
+                          Icon(
+                            Icons.arrow_forward,
+                            color: context.general.colorScheme.secondary,
+                          )
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Positioned(
-                    right: 5,
-                    bottom: 5,
-                    child: Image.asset("assets/image/match_page.png")),
-              ],
+                  Positioned(
+                      right: 5,
+                      bottom: 5,
+                      child: Image.asset("assets/image/match_page.png")),
+                ],
+              ),
             ),
           ),
         )
